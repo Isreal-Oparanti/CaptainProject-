@@ -1,0 +1,73 @@
+@use '../abstract/variable' as *;
+@use '../abstract/mixin' as *;
+
+.section-login {
+    position: relative;
+    // @include clearfix;
+
+    max-width: 30rem;
+    margin: 0 auto;
+    background-color: $color-white;
+    border-radius: 1rem;
+    box-shadow: 0 .2rem .2rem rgba($color-black, 0.2);
+
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    padding: 2rem; 
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-top: 8rem;
+
+    &--form {
+
+        &_item>input {           
+            width: 100%;
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1.5rem;
+            outline: none;
+            
+            // &:not(:first-child) {
+            //     margin-bottom: 2rem;
+            // }
+        }
+    }
+}
+
+.social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin: .5rem 0 1rem 0;
+    width: 100%;    
+
+    &-media {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        width: 70%;
+        padding: 0;
+        margin: 0;
+    }
+
+        &_item:link, &_item:visited {
+            padding: 0 2rem;
+            text-decoration: none;
+            color: $color-grey-light-3;
+            font-size: 1.5rem;
+
+        }
+}
+
+ul>a:active {
+            color: $color-grey-light-3;
+            text-decoration: none;
+        }

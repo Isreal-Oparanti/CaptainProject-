@@ -1,0 +1,85 @@
+@use '../abstract/variable' as *;
+@use '../abstract/mixin' as *;
+
+.sidebar {
+    display: flex;
+    height: 100vh;
+
+    &-item {
+    background-color: $color-primary;
+    width: 25%;
+    color: $color-white;
+    padding: 2rem;
+    box-sizing: border-box;
+    position: relative;
+
+      &_menu {
+        width: 100%;
+        list-style: none;
+        font-size: 1.5rem;
+        line-height: 4rem;
+
+        &-list {
+          display: flex;
+          align-items: center; // so icon and text align nicely
+          padding: 1rem;
+          text-decoration: none;
+
+          &:link, &:visited {
+            color: $color-white;
+            text-decoration: none;
+            text-transform: uppercase;
+          }
+
+          &:hover, &:active {
+            background-color: $color-primary-light;
+            border-radius: 0.5rem;
+          }
+
+          .icons {
+            margin-right: 1.5rem; // space between icon and text
+          }
+        }      
+      }
+  }
+
+  &-main {
+    // display: flex;
+    padding: 3rem;
+    width: 100%;
+
+    &_head {
+      display: flex;
+      align-items: center; 
+      position: relative;
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.title {
+  color: $color-primary;
+  font-weight: normal;
+  font-size: 3rem;
+}
+
+.btn4 {
+  
+  transition: all 0.2s;
+  border-radius: 0.5rem;
+  position: absolute;
+  right: 4rem;
+  background-color: aqua;
+        
+        &>a:link, &>a:visited {
+          font-size: inherit;
+            text-decoration: none;
+            padding: .5rem 1.5rem;
+            color: $color-white;
+            background-color: $color-green;
+        }
+
+        &>a:active {
+            transform: translateY(-0.2rem);
+        }
+}

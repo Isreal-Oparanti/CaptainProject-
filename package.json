@@ -1,0 +1,17 @@
+{
+  "name": "secheck",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+   "sass:watch": "sass --watch scss/main.scss:css/main.css --style=expanded --source-map",
+  "sass:build": "sass scss:css/main.css --style=compressed --no-source-map",
+  "dev": "npm run sass:watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.93.2"
+  }
+}

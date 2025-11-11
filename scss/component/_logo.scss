@@ -1,0 +1,31 @@
+@use "../abstract/variable" as *;
+
+.logo {
+  width: 15rem;
+  margin-left: 13rem;
+}
+
+.secheck {
+  width: 35rem;
+  padding: 0;
+}
+
+.note {
+  width: 30rem;
+  position: absolute;
+  right: 47rem;
+}
+
+.login-logo {
+  position: absolute;
+  top: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15rem;
+  // background-color: darkblue;
+}
+
+.heading-logo {
+  margin-left: 9rem;
+  width: 15rem;
+}

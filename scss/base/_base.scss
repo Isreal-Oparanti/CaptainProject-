@@ -1,0 +1,48 @@
+@use '../abstract/variable' as *;
+@use '../abstract/mixin' as *;
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: "poppins", sans-serif;
+    box-sizing: border-box;
+    padding: 3rem;
+    width: 100%;     
+    @include absCenter;
+
+    // background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    background-attachment: fixed;
+}
+
+.index-home {
+    background: url("/img/5197214.jpg") no-repeat center center/cover;
+    background-attachment: fixed;
+}
+
+.security-home {
+    background: url("/img/bg.png") no-repeat center center/cover;
+    background-attachment: fixed;
+}
+
+.attendance-home {
+    background-color: $color-grey-light-4;
+    background-attachment: fixed;
+
+    padding: 0;
+    // width: 100%;
+    @include removeAbsCenter;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}

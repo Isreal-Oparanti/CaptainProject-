@@ -1,0 +1,11 @@
+@use "../abstract/variable" as *;
+@use "../abstract/mixin" as *;
+
+.hero {
+  max-width: 90%;
+  margin: 0 auto;
+  align-items: center;
+  margin-top: 10rem;
+
+  @include clearfix;
+}
