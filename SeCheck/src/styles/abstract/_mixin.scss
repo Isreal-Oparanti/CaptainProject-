@@ -1,0 +1,21 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table; //So as to be able to divide it into row and column
+    clear: both;
+  }
+}
+
+@mixin absCenter($top: 50%, $left: 50%, $x: -50%, $y: -50%) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  transform: translate($x, $y);
+}
+
+@mixin removeAbsCenter {
+  position: static; 
+  top: auto;
+  left: auto;
+  transform: none;  
+}

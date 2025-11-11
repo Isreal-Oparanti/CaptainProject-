@@ -1,0 +1,177 @@
+@use '../abstract/variable' as *;
+@use '../abstract/mixin' as *;
+
+.sidebar {
+    display: flex;
+    height: 100vh;
+
+    &-item {
+    background-color: $color-primary;
+    width: 25%;
+    color: $color-white;
+    padding: 2rem;
+    box-sizing: border-box;
+    position: relative;
+
+      &_menu {
+        width: 100%;
+        list-style: none;
+        font-size: 1.5rem;
+        line-height: 4rem;
+
+        &-list {
+          display: flex;
+          align-items: center; // so icon and text align nicely
+          padding: 1rem;
+          text-decoration: none;
+
+          &:link, &:visited {
+            color: $color-white;
+            text-decoration: none;
+            text-transform: uppercase;
+          }
+
+          &:hover, &:active {
+            background-color: $color-primary-light;
+            border-radius: 0.5rem;
+          }
+
+          .icons {
+            margin-right: 1.5rem; // space between icon and text
+          }
+        }      
+      }
+  }
+
+  &-main {
+    // display: flex;
+    padding: 3rem;
+    width: 100%;
+
+    &_head {
+      display: flex;
+      align-items: center; 
+      position: relative;
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.title {
+  color: $color-primary;
+  font-weight: normal;
+  font-size: 3rem;
+}
+
+.btn4 {
+  
+  transition: all 0.2s;
+  border-radius: 0.5rem;
+  position: absolute;
+  right: 4rem;
+  background-color: aqua;
+        
+        &>a:link, &>a:visited {
+          font-size: inherit;
+            text-decoration: none;
+            padding: .5rem 1.5rem;
+            color: $color-white;
+            background-color: $color-green;
+        }
+
+        &>a:active {
+            transform: translateY(-0.2rem);
+        }
+}
+      
+
+
+// json-code
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.dashboard-content {
+  display: flex;
+  flex: 1;
+}
+
+.sidebar {
+  width: 250px;
+  background:#1a2a6c;
+  color: white;
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-logo {
+  padding: 0 1.5rem 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 1.5rem;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  .sidebar-menu-item {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    i {
+      margin-right: 1rem;
+      width: 20px;
+      text-align: center;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+
+    &.active {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border-left: 3px solid white;
+    }
+  }
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  background: #f5f5f5;
+}
+
+.dashboard-page {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}

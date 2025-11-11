@@ -1,0 +1,125 @@
+@use '../abstract/variable' as *;
+@use '../abstract/mixin' as *;
+
+.btn {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    display: inline-block;
+    transition: all 0.2s;
+    position: relative;
+    margin: 4rem 0 10rem 0;
+  }  
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+  }
+
+  &-secondary {
+    background-color: $color-secondary;
+    border-bottom: 0.1rem solid $color-secondary;
+    color: $color-white;
+    margin-left: .5rem;
+    position: absolute;
+
+      &:hover {
+        transform: translateY(-0.2rem);
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+      }
+  }
+
+  &-primary {
+    background-color: $color-primary;
+    border-bottom: 0.1rem solid $color-primary;
+    color: $color-white;
+    position: absolute;
+    left: 1.5rem;
+
+      &:hover {
+        transform: translateY(-0.2rem);
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+      }
+  }
+}
+
+.btn2 {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    text-decoration: none;
+    padding: .5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }  
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+  }
+
+  &-login {
+    background-color: $color-primary;
+    border-bottom: 0.1rem solid $color-primary;
+    color: $color-white;
+    width: 100%;
+
+      &:hover {
+        transform: translateY(-0.2rem);
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+      }
+
+      &:active {
+        transform: translateY(0.2rem);
+      }
+  }
+
+  &-button {
+    background-color: $color-primary;
+    border-bottom: 0.1rem solid $color-primary;
+    color: $color-white;
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 1.5rem;
+
+      &:hover {
+        transform: translateY(-0.2rem);
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+      }
+
+      &:active {
+        transform: translateY(0.2rem);
+      }
+  }
+}
+
+.heading-btn3 {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    text-decoration: none;
+    padding: .5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    margin: 0 auto;
+  } 
+
+  &_logout {
+    background-color: $color-primary;
+    border-bottom: 0.1rem solid $color-primary;
+    color: $color-white;
+    position: absolute;
+    right: 7rem;
+
+      &:hover {
+        transform: translateY(-0.2rem);
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+      }
+  }
+}

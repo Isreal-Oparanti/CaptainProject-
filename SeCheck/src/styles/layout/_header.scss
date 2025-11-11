@@ -1,0 +1,77 @@
+@use '../abstract/variable' as *;
+@use '../abstract/mixin' as *;
+
+//HOME PAGE
+.header {
+    display: flex;
+    position: relative;
+    height: 5rem;
+    background-color: $color-white;
+    top: 3rem;
+
+    box-shadow: 0 .2rem .2rem rgba($color-black, 0.2);
+
+    &--navbar{
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        width: 100%;
+
+        :not(:last-child) {
+            padding-right: 3rem;
+        }
+
+        // &__logo {
+        //     width: 2rem;
+        // }
+    }
+
+}
+
+.navbar--link {
+    list-style: none;
+    font-size: 1.2rem;
+    color: $color-white;
+    // background-color: aliceblue;
+    display: flex;
+    position: absolute;
+    right: 12rem;
+    text-transform: uppercase;
+
+    
+}
+
+.navbar--item {
+    text-decoration: none;
+
+    &:link,
+    &:visited {
+        color: $color-primary;
+        font-weight: 700;
+    }
+}
+
+//ATTENDANCE PAGE
+.attendance-log {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+
+    // @include clearfix;
+}
+
+.heading {
+    background-color: $color-white;
+    width: 100%;
+    position: sticky;
+    padding: 1rem;
+    display: flex;
+
+    &-greeting {
+        position: absolute;
+        left: 35rem;
+    }
+
+}
+
