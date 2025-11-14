@@ -17,9 +17,7 @@ export default function Sidebar() {
 
   return (
     <div className="sidebar">
-      <div className="sidebar-logo">
       
-      </div>
       <ul className="sidebar-menu">
         {menuItems.map((item) => (
           <li key={item.href}>

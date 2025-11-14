@@ -27,7 +27,6 @@ export default function DashboardPage() {
     router.push('/login');
   };
 
-  // Sample attendance data
   const attendanceData = [
     { id: 1, name: 'Gabriel John', department: 'ICT' },
     { id: 2, name: 'Centro comercial Moctezuma', department: 'Francisco Chang' },
@@ -49,26 +48,30 @@ export default function DashboardPage() {
       <h2>Daily Attendance Report</h2>
 
       <table className="Attendance-Sheet">
-        <tr className="colored">
-          <th>S/N</th>
-          <th>Name</th>
-          <th>Department</th>
-          <th className="space">Status</th>
-        </tr>
-        {attendanceData.map((person, index) => (
-          <tr key={person.id}>
-            <td>{index + 1}.</td>
-            <td>{person.name}</td>
-            <td>{person.department}</td>
-            <td>
-              <ul className="status">
-                <li className="status-line"><a href="#" className="status-item status-item-1">Present</a></li>
-                <li className="status-line"><a href="#" className="status-item status-item-2">Absent</a></li>
-                <li className="status-line"><a href="#" className="status-item status-item-3">Temporal Out</a></li>
-              </ul>
-            </td>
+        <thead>
+          <tr>
+            <th>S/N</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th className="space">Status</th>
           </tr>
-        ))}
+        </thead>
+        <tbody>
+          {attendanceData.map((person, index) => (
+            <tr key={person.id}>
+              <td>{index + 1}.</td>
+              <td>{person.name}</td>
+              <td>{person.department}</td>
+              <td>
+                <ul className="status">
+                  <li className="status-line"><a href="#" className="status-item status-item-1">Present</a></li>
+                  <li className="status-line"><a href="#" className="status-item status-item-2">Absent</a></li>
+                  <li className="status-line"><a href="#" className="status-item status-item-3">Temporal Out</a></li>
+                </ul>
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </table>
 
       <div className="btn5">

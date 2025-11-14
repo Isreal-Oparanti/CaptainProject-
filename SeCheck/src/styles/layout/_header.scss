@@ -1,13 +1,13 @@
 @use '../abstract/variable' as *;
 @use '../abstract/mixin' as *;
 
-//HOME PAGE
+
 .header {
     display: flex;
     position: relative;
-    height: 5rem;
+    height: 7rem;
     background-color: $color-white;
-    top: 3rem;
+
 
     box-shadow: 0 .2rem .2rem rgba($color-black, 0.2);
 

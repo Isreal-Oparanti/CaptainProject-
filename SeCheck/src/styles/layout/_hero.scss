@@ -2,10 +2,91 @@
 @use "../abstract/mixin" as *;
 
 .hero {
-  max-width: 90%;
+  
+  max-width: 70%;
   margin: 0 auto;
-  align-items: center;
   margin-top: 10rem;
-
-  @include clearfix;
+  
+  .hero-content {
+    // background-color: green;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    
+    .hero-text,
+    .hero-image {
+      flex: 1;
+      
+    }
+    
+    .hero-text {
+      padding-right: 2rem;
+      
+      .secheck {
+        max-width: 150px;
+        margin-bottom: 1rem;
+      }
+      
+      h1 {
+        font-size: 3.5rem;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+      }
+      
+      p {
+        font-size: 1.2rem;
+        margin-bottom: 2.5rem;
+        color: #666;
+      }
+      
+      .btn {
+        display: flex;
+        gap: 1rem;
+      }
+    }
+    
+    .hero-image {
+      
+      
+      img {
+        max-width: 100%;
+        width: 35rem;
+        height: auto;
+        display: block;
+      }
+    }
+  }
+  
+  @media (max-width: 768px) {
+    margin-top: 8rem;
+    
+    .hero-content {
+      flex-direction: column-reverse;
+      gap: 3rem;
+      text-align: center;
+      
+      .hero-text,
+      .hero-image {
+        flex: 100%;
+      }
+      
+      .hero-text {
+        padding-right: 0;
+        
+        h1 {
+          font-size: 2.5rem;
+        }
+        
+        p {
+          font-size: 1rem;
+        }
+        
+        .btn {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    }
+  }
 }
