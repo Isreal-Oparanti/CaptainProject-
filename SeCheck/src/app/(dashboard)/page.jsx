@@ -77,3 +77,15 @@ export default function DashboardPage() {
     </div>
   );
 }
+
+import { AttendanceProvider } from "./context/AttendanceContext";
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>
+        <AttendanceProvider>{children}</AttendanceProvider>
+      </body>
+    </html>
+  );
+}

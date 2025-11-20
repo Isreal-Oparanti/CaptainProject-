@@ -1,0 +1,196 @@
+@use "../abstract/variable" as *;
+@use "../abstract/mixin" as *;
+
+@use "../component/StatusDropdown" as *;
+
+.report-container {
+  width: 100%;
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 1rem rgba(0, 0, 0, 0.05);
+}
+
+.gap {
+  margin-bottom: 1.5rem;
+  color: $color-primary;
+  font-weight: 600;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+}
+
+.attendance-search {
+  display: flex; // places input and button side by side
+  gap: 1rem; // spacing between them
+  align-items: center;
+  margin-bottom: 2rem;
+
+  .date-input {
+    padding: 1rem 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.65rem;
+    font-size: 1.5rem;
+    width: 100%;
+    outline: none;
+    transition: 0.2s ease;
+
+    // highlight effect when clicked
+    &:focus {
+      border-color: #4a90e2;
+      box-shadow: 0 0 0.5rem rgba(74, 144, 226, 0.3);
+    }
+  }
+
+  .view-btn {
+    padding: 1rem 2rem;
+    background: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 0.65rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+
+    &:hover {
+      background: #357ab8;
+    }
+
+    &:active {
+      transform: scale(0.97);
+    }
+  }
+}
+
+.attendance-table {
+  font-family: inherit;
+  font-size: 1.4rem;
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+
+  overflow: hidden;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+
+  th {
+    background-color: $color-primary;
+    color: $color-white;
+    text-align: left;
+    // font-weight: 600;
+    border-bottom: 1px solid #eaeaea;
+
+    font-weight: 600;
+    padding: 1.2rem 1.5rem;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+  }
+
+  td {
+    // font-size: 1rem;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* STATUS BADGES */
+  .status-select {
+    padding: 0.4rem 0.8rem;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    font-weight: 200;
+    display: inline-block;
+    text-transform: capitalize;
+  }
+
+  .present {
+    background: #e5f8e8;
+    color: #0d8a32;
+  }
+
+  .absent {
+    background: #fde8e8;
+    color: #d12a2a;
+  }
+
+  .late {
+    background: #fff4e5;
+    color: #ff8c00;
+  }
+
+  .on-leave {
+    background: #e6f0ff;
+    color: #2962ff;
+  }
+}
+
+.checkin-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-right: 0.8rem;
+  transition: opacity 0.2s ease-in-out;
+
+  &.enabled {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &.disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+}
+
+.checkin-btn:hover {
+  background-color: #218838;
+}
+
+.checkout-btn {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-left: 1.5rem;
+  transition: opacity 0.2s ease-in-out;
+
+  &.enabled {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &.disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+}
+
+.checkout-btn:hover {
+  background-color: #ff5c5c;
+}
+
+.close-attendance-btn {
+  margin: 1rem auto 0 auto;
+  padding: 1rem 2rem;
+  background-color: crimson;
+  color: $color-white;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 0.8rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+  display: block;
+  text-align: center;
+}

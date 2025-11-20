@@ -1,0 +1,134 @@
+@use "../abstract/variable" as *;
+@use "../abstract/mixin" as *;
+
+.attendance-container {
+  width: 100%;
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 1rem rgba(0, 0, 0, 0.05);
+}
+
+/* Main Title */
+.title {
+  margin-bottom: 1.5rem;
+  color: $color-primary;
+  font-weight: 600;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+}
+
+/* Search bar container */
+.attendance-search {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+/* Search input */
+.search-input {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  font-size: 1.4rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.search-input:focus {
+  border-color: #007bff; /* Highlight border on focus */
+  box-shadow: 0 0 0.5rem rgba(0, 123, 255, 0.5);
+}
+
+/* Optional: placeholder styling */
+.search-input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+/* Table */
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 1.35rem;
+  overflow: hidden;
+  box-shadow: 0 2px 0.5rem rgba(0, 0, 0, 0.05);
+}
+
+.attendance-table thead {
+  background: #f4f7fb;
+  color: #666;
+  font-size: 1.4rem;
+}
+
+.attendance-table th,
+.attendance-table td {
+  padding: 1.5rem 2rem;
+  text-align: left;
+  font-size: 1.4rem;
+  border-bottom: 1px solid #eef2fb;
+}
+
+.attendance-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Status Colors */
+.status-present {
+  color: #0d8a32;
+  font-weight: 600;
+}
+
+.status-absent {
+  color: #d12a2a;
+  font-weight: 600;
+}
+
+.status-late {
+  color: #ff8c00;
+  font-weight: 600;
+}
+
+.status-leave {
+  color: #2962ff;
+  font-weight: 600;
+}
+
+.report-buttons {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.clear-btn,
+.export-btn {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clear-btn {
+  background-color: #f87171; /* red */
+  color: white;
+}
+
+.clear-btn:hover {
+  background-color: #ef4444;
+}
+
+.export-btn {
+  background-color: #34d399; /* green */
+  color: white;
+}
+
+.export-btn:hover {
+  background-color: #10b981;
+}

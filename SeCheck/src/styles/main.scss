@@ -1,29 +1,36 @@
-@use 'abstract/function';
-@use 'abstract/mixin';
-@use 'abstract/variable';
+@use "abstract/function";
+@use "abstract/mixin";
+@use "abstract/variable";
 
-@use 'base/base';
-@use 'base/typography';
+@use "base/base";
+@use "base/typography";
 
-@use 'component/button';
-@use 'component/component';
-@use 'component/form';
-@use 'component/grid';
-@use 'component/login';
-@use 'component/logo';
-@use 'component/sidebar';
-@use 'component/table';
+@use "component/button";
+@use "component/component";
+@use "component/form";
+@use "component/grid";
+@use "component/login";
+@use "component/logo";
+@use "component/sidebar";
+@use "component/statusDropdown";
+@use "component/table";
 
-@use 'layout/footer';
-@use 'layout/header';
-@use 'layout/hero';
+@use "layout/footer";
+@use "layout/header";
+@use "layout/hero";
 
-@use 'pages/home';
-@use 'pages/admin';
-@use 'pages/security';
-@use 'pages/dashboard';
+@use "pages/attendance";
+@use "pages/employee";
+@use "pages/report";
+@use "pages/security";
+@use "pages/dashboard";
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   color: #333;
 }
+
+// .disabled-page {
+//   opacity: 0.4;
+//   pointer-events: none;
+// }

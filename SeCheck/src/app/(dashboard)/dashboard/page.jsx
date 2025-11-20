@@ -1,81 +1,151 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useEffect, useState } from "react";
+import { Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+  Tooltip,
+  Legend,
+} from "chart.js";
+
+import { getEmployees, getAttendance } from "@/data/attendanceStore";
+
+// Register Chart.js items
+ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
 export default function DashboardPage() {
-  const [user, setUser] = useState(null);
-  const router = useRouter();
+  const [employees, setEmployees] = useState([]);
+  const [attendanceData, setAttendanceData] = useState([]);
 
   useEffect(() => {
-    const token = localStorage.getItem('authToken');
-    const userData = localStorage.getItem('user');
-    
-    if (!token) {
-      router.push('/login');
-      return;
-    }
-    
-    if (userData) {
-      setUser(JSON.parse(userData));
-    }
-  }, [router]);
+    setEmployees(getEmployees());
+    setAttendanceData(getAttendance());
+  }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem('authToken');
-    localStorage.removeItem('user');
-    router.push('/login');
+  /** -----------------------------
+   *  STAFF COUNTS
+   * ----------------------------- */
+  const totalStaff = employees.length;
+
+  const today = new Date().toISOString().split("T")[0];
+
+  const todaysAttendance = attendanceData.filter((a) => a.date === today);
+
+  const presentCount = todaysAttendance.filter(
+    (a) => a.status === "Present"
+  ).length;
+  const lateCount = todaysAttendance.filter((a) => a.status === "Late").length;
+  const absentCount = totalStaff - (presentCount + lateCount);
+
+  /** -----------------------------
+   *  WEEKLY SUMMARY (MON–FRI)
+   * ----------------------------- */
+  const days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+
+  const getDayAttendanceCount = (dayName) => {
+    return attendanceData.filter((a) => {
+      const day = new Date(a.date).toLocaleString("en-US", {
+        weekday: "short",
+      });
+      return day === dayName;
+    }).length;
   };
 
-  const attendanceData = [
-    { id: 1, name: 'Gabriel John', department: 'ICT' },
-    { id: 2, name: 'Centro comercial Moctezuma', department: 'Francisco Chang' },
-    { id: 3, name: 'Ernst Handel', department: 'Roland Mendel' },
-    { id: 4, name: 'Island Trading', department: 'Helen Bennett' },
-    { id: 5, name: 'Laughing Bacchus Winecellars', department: 'Yoshi Tannamuri' },
-    { id: 6, name: 'Magazzini Alimentari Riuniti', department: 'Giovanni Rovelli' },
-  ];
+  const weeklyData = days.map((d) => getDayAttendanceCount(d));
+
+  /** -----------------------------
+   *  BAR CHART CONFIG (WEEKLY)
+   * ----------------------------- */
+  const barChartData = {
+    labels: days,
+    datasets: [
+      {
+        label: "Attendance Count",
+        data: weeklyData,
+        backgroundColor: "#4A90E2",
+      },
+    ],
+  };
+
+  /** -----------------------------
+   *  TODAY STACKED BAR
+   * ----------------------------- */
+  const todayStackedData = {
+    labels: ["Today"],
+    datasets: [
+      {
+        label: "Present",
+        data: [presentCount],
+        backgroundColor: "#2ecc71",
+      },
+      {
+        label: "Late",
+        data: [lateCount],
+        backgroundColor: "#f1c40f",
+      },
+      {
+        label: "Absent",
+        data: [absentCount],
+        backgroundColor: "#e74c3c",
+      },
+    ],
+  };
+
+  const todayStackedOptions = {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: true,
+        position: "right",
+      },
+    },
+    scales: {
+      x: { stacked: true },
+      y: { stacked: true, beginAtZero: true },
+    },
+  };
 
   return (
-    <div className="dashboard-page">
-      <div className="dashboard-header">
-        <h1 className="title">Attendance Log</h1>
-        <div className="btn4">
-          <a href="#" className="add-staff">Add Staff</a>
+    <div className="attendance-dashboard">
+      <h1>Attendance Dashboard</h1>
+
+      {/* SUMMARY CARDS */}
+      <div className="summary-cards">
+        <div className="card total">
+          <h2>{totalStaff}</h2>
+          <p>Total Staff</p>
         </div>
-      </div>                
 
-      <h2>Daily Attendance Report</h2>
+        <div className="card present">
+          <h2>{presentCount}</h2>
+          <p>Present Today</p>
+        </div>
 
-      <table className="Attendance-Sheet">
-        <thead>
-          <tr>
-            <th>S/N</th>
-            <th>Name</th>
-            <th>Department</th>
-            <th className="space">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {attendanceData.map((person, index) => (
-            <tr key={person.id}>
-              <td>{index + 1}.</td>
-              <td>{person.name}</td>
-              <td>{person.department}</td>
-              <td>
-                <ul className="status">
-                  <li className="status-line"><a href="#" className="status-item status-item-1">Present</a></li>
-                  <li className="status-line"><a href="#" className="status-item status-item-2">Absent</a></li>
-                  <li className="status-line"><a href="#" className="status-item status-item-3">Temporal Out</a></li>
-                </ul>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+        <div className="card late">
+          <h2>{lateCount}</h2>
+          <p>Late Today</p>
+        </div>
 
-      <div className="btn5">
-        <a href="#" className="view-all">View More</a>
+        <div className="card absent">
+          <h2>{absentCount}</h2>
+          <p>Absent Today</p>
+        </div>
+      </div>
+
+      {/* CHARTS */}
+      <div className="charts">
+        <div className="chart">
+          <h3>Attendance Summary (Mon–Fri)</h3>
+          <Bar data={barChartData} />
+        </div>
+
+        <div className="chart">
+          <h3>Today’s Attendance</h3>
+          <Bar data={todayStackedData} options={todayStackedOptions} />
+        </div>
       </div>
     </div>
   );

@@ -1,11 +1,11 @@
-@use '../abstract/variable' as *;
-@use '../abstract/mixin' as *;
+@use "../abstract/variable" as *;
+@use "../abstract/mixin" as *;
 
 .sidebar {
-    display: flex;
-    height: 100vh;
+  display: flex;
+  height: 100vh;
 
-    &-item {
+  &-item {
     background-color: $color-primary;
     width: 25%;
     color: $color-white;
@@ -13,34 +13,36 @@
     box-sizing: border-box;
     position: relative;
 
-      &_menu {
-        width: 100%;
-        list-style: none;
-        font-size: 1.5rem;
-        line-height: 4rem;
+    &_menu {
+      width: 100%;
+      list-style: none;
+      font-size: 1.5rem;
+      line-height: 4rem;
 
-        &-list {
-          display: flex;
-          align-items: center; // so icon and text align nicely
-          padding: 1rem;
+      &-list {
+        display: flex;
+        align-items: center; // so icon and text align nicely
+        padding: 1rem;
+        text-decoration: none;
+
+        &:link,
+        &:visited {
+          color: $color-white;
           text-decoration: none;
+          text-transform: uppercase;
+        }
 
-          &:link, &:visited {
-            color: $color-white;
-            text-decoration: none;
-            text-transform: uppercase;
-          }
+        &:hover,
+        &:active {
+          background-color: $color-primary-light;
+          border-radius: 0.5rem;
+        }
 
-          &:hover, &:active {
-            background-color: $color-primary-light;
-            border-radius: 0.5rem;
-          }
-
-          .icons {
-            margin-right: 1.5rem; // space between icon and text
-          }
-        }      
+        .icons {
+          margin-right: 1.5rem; // space between icon and text
+        }
       }
+    }
   }
 
   &-main {
@@ -50,7 +52,7 @@
 
     &_head {
       display: flex;
-      align-items: center; 
+      align-items: center;
       position: relative;
       margin-bottom: 2rem;
     }
@@ -64,27 +66,25 @@
 }
 
 .btn4 {
-  
   transition: all 0.2s;
   border-radius: 0.5rem;
   position: absolute;
   right: 4rem;
   background-color: aqua;
-        
-        &>a:link, &>a:visited {
-          font-size: inherit;
-            text-decoration: none;
-            padding: .5rem 1.5rem;
-            color: $color-white;
-            background-color: $color-green;
-        }
 
-        &>a:active {
-            transform: translateY(-0.2rem);
-        }
+  & > a:link,
+  & > a:visited {
+    font-size: inherit;
+    text-decoration: none;
+    padding: 0.5rem 1.5rem;
+    color: $color-white;
+    background-color: $color-green;
+  }
+
+  & > a:active {
+    transform: translateY(-0.2rem);
+  }
 }
-      
-
 
 // json-code
 
@@ -101,7 +101,7 @@
 
 .sidebar {
   width: 250px;
-  background:#1a2a6c;
+  background: #1a2a6c;
   color: white;
   padding: 1.5rem 0;
   display: flex;

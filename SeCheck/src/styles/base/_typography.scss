@@ -1,39 +1,43 @@
-@use '../abstract/variable' as *;
+@use "../abstract/variable" as *;
 
 .container {
-    max-width: 100rem;
-    margin: 0 auto;
-    background-color: $color-white;
-    border-radius: 1rem;
-    box-shadow: 0 .2rem .2rem rgba($color-black, 0.2);
+  max-width: 80rem;
+  margin: 0 auto;
+  max-height: 78vh;
+  background-color: $color-white;
+  border-radius: 1rem;
+  box-shadow: 0 0.2rem 0.2rem rgba($color-black, 0.2);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .h1 {
-    color: $color-primary;
-    font-weight: normal;
-    font-size: 3rem;
-    margin: 1rem 0 1rem .5rem;
-    // margin-left: .5rem;
+  color: $color-primary;
+  font-weight: normal;
+  font-size: 2.5rem;
+  margin: 1rem 0 1rem 0.5rem;
+  // margin-left: .5rem;
 }
 
 p {
-    color: $color-grey-dark-2;
-    margin: 1rem 0 1rem .5rem;
-    font-size: 1.5rem;
-    box-decoration-break: clone;
-    line-height: 2rem;
+  color: $color-grey-dark-2;
+  margin: 1rem 0 1rem 0.5rem;
+  font-size: 1.5rem;
+  box-decoration-break: clone;
+  line-height: 2rem;
 }
 
 .help {
-    color: $color-grey-dark-2;
-    margin-right: auto;
+  color: $color-grey-dark-2;
+  margin-right: auto;
 
-    &>a:link, a:visited{
-        font-size: 1.2rem;
-        color: inherit;
-        text-transform: none;
-        text-decoration: none;
-    }
+  & > a:link,
+  a:visited {
+    font-size: 1.2rem;
+    color: inherit;
+    text-transform: none;
+    text-decoration: none;
+  }
 }
 
 .line-text {
@@ -42,7 +46,7 @@ p {
   text-align: center;
 
   p {
-    margin: 0 .5rem; // spacing between text and lines
+    margin: 0 0.5rem; // spacing between text and lines
     white-space: nowrap; // prevents text breaking
   }
 
